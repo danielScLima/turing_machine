@@ -25,12 +25,15 @@ void TuringMachine::configureMachineSample(int index_of_sample)
 
 void TuringMachine::configure_sample
 (
-    int id_of_acceptance_state,
-    const std::vector<std::vector<std::vector<Entry>>> &structure
+    TupleOfIdOfAcceptanceStateAndStructure p
+    //int id_of_acceptance_state,
+    //const std::vector<std::vector<std::vector<Entry>>> &structure,
+    //std::string name
 )
 {
-    this->id_of_acceptance_state = id_of_acceptance_state;
-    this->structure = structure;
+    this->id_of_acceptance_state = p.idOfAcceptanceState;
+    this->structure = p.structure;
+    this->nameOfTuringMachine = p.nameOfTuringMachine;
     reset();
 }
 

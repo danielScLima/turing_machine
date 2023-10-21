@@ -31,5 +31,5 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_deb
         }
     };
 
-    return TupleOfIdOfAcceptanceStateAndStructure(1, st);
+    return TupleOfIdOfAcceptanceStateAndStructure(1, st, "Demo");
 }

@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <Entry.h>
+#include "tupleofidofacceptancestateandstructure.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ private:
     int current_index_of_input;
     bool show_debug_messages;
     int id_of_acceptance_state;
+    std::string nameOfTuringMachine;
 
     void reset();
 public:
@@ -25,7 +27,7 @@ public:
 
     void configureMachineSample(int index_of_sample);
 
-    void configure_sample(int id_of_acceptance_state, const std::vector<std::vector<std::vector<Entry>>>& structure);
+    void configure_sample(TupleOfIdOfAcceptanceStateAndStructure p);
 
     void configure_input_string(const std::string& input);
 
