@@ -3,27 +3,29 @@
 
 #include <vector>
 #include <iostream>
+#include <Entry.h>
 
 using namespace std;
 
 class TuringMachine
 {
 private:
-    std::vector<std::vector<std::string>> structure;
+    std::vector<std::vector<std::vector<Entry>>> structure;
     int current_state;
     std::string input;
     int current_index_of_input;
     bool show_debug_messages;
+    int id_of_acceptance_state;
 
     void reset();
 public:
     TuringMachine(bool show_debug_messages = false);
 
-    std::string getTransitionsOfXStateToYState(int x, int y);
+    std::vector<Entry> getTransitionsOfXStateToYState(int x, int y);
 
     void configureMachineSample(int index_of_sample);
 
-    void configure_sample(const std::vector<std::vector<std::string>>& structure);
+    void configure_sample(int id_of_acceptance_state, const std::vector<std::vector<std::vector<Entry>>>& structure);
 
     void configure_input_string(const std::string& input);
 

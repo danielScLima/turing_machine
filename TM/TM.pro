@@ -18,5 +18,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    Entry.h \
+    pairofidofacceptancestateandstructure.h \
     turingachinesamples.h \
     turingmachine.h

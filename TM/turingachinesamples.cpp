@@ -1,25 +1,35 @@
 #include "turingachinesamples.h"
+#include <pairofidofacceptancestateandstructure.h>
 
 TuringachineSamples::TuringachineSamples()
 {
 
 }
 
-std::vector<std::vector<std::string>> TuringachineSamples::get_structure_of_debug_sample()
+PairOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_debug_sample()
 {
-    std::vector<std::vector<std::string>> st = {
+    std::vector<std::vector<std::vector<Entry>>> st = {
         //vetor partindo 0
         {
-            {'a'}, //vetor chegando no 0
-            {'b'}  //vetor chegando no 1
+            {Entry('a','a','R')}, //vetor chegando no 0
+            {Entry('b','b','R')}, //vetor chegando no 1
+            {Entry('c','c','R')}, //vetor chegando no 2
         },
 
         //vetor partindo do 1
         {
             {}, //vetor chegando no 0
-            {}  //vetor chegando no 1
+            {Entry('b','b','R')}, //vetor chegando no 1
+            {}  //vetor chegando no 2
+        },
+
+        //vetor partindo do 2
+        {
+            {}, //vetor chegando no 0
+            {Entry('b','b','R')}, //vetor chegando no 1
+            {}  //vetor chegando no 2
         }
     };
 
-    return st;
+    return PairOfIdOfAcceptanceStateAndStructure(1, st);
 }

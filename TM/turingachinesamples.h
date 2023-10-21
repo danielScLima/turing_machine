@@ -6,12 +6,16 @@
 
 using namespace std;
 
+#include <Entry.h>
+#include "pairofidofacceptancestateandstructure.h"
+
+
 class TuringachineSamples
 {
 public:
     TuringachineSamples();
 
-    static std::vector<std::vector<std::string>> get_structure_of_debug_sample();
+    static PairOfIdOfAcceptanceStateAndStructure get_structure_of_debug_sample();
 };
 
 #endif // TURINGACHINESAMPLES_H

@@ -13,7 +13,7 @@ void TuringMachine::reset()
     current_index_of_input = -1;
 }
 
-std::string TuringMachine::getTransitionsOfXStateToYState(int x, int y)
+std::vector<Entry> TuringMachine::getTransitionsOfXStateToYState(int x, int y)
 {
     return this->structure[x][y];
 }
@@ -23,8 +23,13 @@ void TuringMachine::configureMachineSample(int index_of_sample)
 
 }
 
-void TuringMachine::configure_sample(const std::vector<std::vector<std::string>> &structure)
+void TuringMachine::configure_sample
+(
+    int id_of_acceptance_state,
+    const std::vector<std::vector<std::vector<Entry>>> &structure
+)
 {
+    this->id_of_acceptance_state = id_of_acceptance_state;
     this->structure = structure;
     reset();
 }
@@ -39,20 +44,45 @@ void TuringMachine::consume_current_symbol()
 {
     char current_char_input = this->input[this->current_index_of_input];
 
-    for(int dest_state_index = 0;dest_state_index < this->input.size();dest_state_index++)
+    for(int dest_state_index = 0;dest_state_index < this->structure.size();dest_state_index++)
     {
-        std::string chars = getTransitionsOfXStateToYState(
+        std::vector<Entry> entries = getTransitionsOfXStateToYState(
             this->current_state,
             dest_state_index
         );
 
-        if (this->show_debug_messages)
-            std::cout << "Chars: " << chars << std::endl;
+        //if (this->show_debug_messages)
+            //std::cout << "Chars: " << entries << std::endl;
 
-        if (chars.find(current_char_input) != std::string::npos)
+        //if (chars.find(current_char_input) != std::string::npos)
+
+        const auto look_for_char = [current_char_input](const Entry& entry){
+            return entry.symbol_on_ribbon == current_char_input;
+        };
+        const auto find_it = std::find_if(std::begin(entries), std::end(entries), look_for_char);
+
+        if (find_it != entries.end())
         {
             //Encontrou uma transição definida
+
+            //Vai para o seguinte estado: dest_state_index
             this->current_state = dest_state_index;
+
+            //Deve alterar o símbolo atual para: find_it->symbol_to_write
+            this->input[this->current_index_of_input] = find_it->symbol_to_write;
+
+            //Deve mover a posição de leitura na entrada de acordo com: find_it->movement
+            if (find_it->movement == 'R')
+            {
+                if ( this->current_index_of_input < (this->input.length()-1) )
+                    this->current_index_of_input++;
+            }
+            else if (find_it->movement == 'L')
+            {
+                if ( this->current_index_of_input > 0 )
+                    this->current_index_of_input--;
+            }
+
             return;
         }
     }
@@ -67,18 +97,17 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
     {
         configure_input_string(input);
 
-        for (
-             this->current_index_of_input = 0;
-             this->current_index_of_input < this->input.size();
-             this->current_index_of_input++
-        )
+        this->current_index_of_input = 0;
+
+        while(true)
         {
             if (this->show_debug_messages)
                 std::cout << "Processando index " << std::to_string(this->current_index_of_input) << std::endl;
             consume_current_symbol();
-        }
 
-        return true;
+            if (this->current_state == this->id_of_acceptance_state)
+                return true;
+        }
     }
     catch (std::exception ex)
     {
