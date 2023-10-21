@@ -7,8 +7,11 @@ int main(int argc, char *argv[])
 {
     //QCoreApplication a(argc, argv);
 
+    std::string local_url = "C:/Users/Daniel/Documents/GitHub/turing_machine/TM";
+
     TuringMachine tm(true);
     tm.configure_sample(TuringachineSamples::get_structure_of_debug_sample());
+    tm.draw_machine(local_url, tm.getNameOfTuringMachine()+".png");
 
     //tm.is_this_input_string_in_the_language_with_message("aab"); //This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("aaac"); //This must NOT be accepted

@@ -1,5 +1,6 @@
 #include "turingmachine.h"
 #include <algorithm>    // std::find
+#include <fstream>
 
 TuringMachine::TuringMachine(bool show_debug_messages)
 {
@@ -126,4 +127,59 @@ void TuringMachine::is_this_input_string_in_the_language_with_message(const std:
         std::cout << "The word " << input << " was accepted!!" << std::endl;
     else
         std::cout << "The word " << input << " was NOT accepted!!" << std::endl;
+}
+
+std::string TuringMachine::produce_content_of_draw()
+{
+    std::string content = "digraph G {\n";
+    content += "\tsubgraph cluster_1 {\n";
+    content += "\t\tnode [style=filled];\n";
+    content += "\t\tlabel = \"Turing Machine\"\n"
+        "\t\tcolor=blue;\n"
+        "\n";
+
+    for (int index = 0; index < this->structure.size(); ++index)
+    {
+        content += "\t\t"+std::to_string(index)+";\n";
+    }
+
+    for (int index = 0; index < this->structure.size(); ++index)
+    {
+        for (int index2 = 0; index2 < this->structure.size(); ++index2)
+        {
+            std::vector<Entry> transitions = getTransitionsOfXStateToYState(index, index2);
+            for (auto entry: transitions)
+            {
+                content += "\t\t"+std::to_string(index)+"->"+std::to_string(index2)+
+                        "[label=\""+entry.symbol_on_ribbon+"->"+entry.symbol_to_write+","+entry.movement+"\"];\n";
+            }
+        }
+    }
+
+    content += "\t}\n"
+        "\n"
+        "}";
+
+    return content;
+}
+
+void TuringMachine::write_to_file(const string &url, const string &content)
+{
+    ofstream myfile;
+    myfile.open (url);
+    myfile << content;
+    myfile.close();
+}
+
+void TuringMachine::draw_machine(const std::string& local_url, const string &url)
+{
+    std::string content = produce_content_of_draw();
+    write_to_file(local_url+"/file.dot", content);
+    std::string command = "dot file.dot -Tpng > "+local_url+"/"+url;
+    system(command.c_str());
+}
+
+string TuringMachine::getNameOfTuringMachine()
+{
+    return this->nameOfTuringMachine;
 }

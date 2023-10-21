@@ -20,6 +20,8 @@ private:
     std::string nameOfTuringMachine;
 
     void reset();
+
+    void write_to_file(const string &url, const string &content);
 public:
     TuringMachine(bool show_debug_messages = false);
 
@@ -36,6 +38,12 @@ public:
     bool is_this_input_string_in_the_language(const std::string& input);
 
     void is_this_input_string_in_the_language_with_message(const std::string &input);
+
+    std::string produce_content_of_draw();
+
+    void draw_machine(const std::string& local_url, const std::string& url);
+
+    std::string getNameOfTuringMachine();
 };
 
 #endif // TURINGMACHINE_H
