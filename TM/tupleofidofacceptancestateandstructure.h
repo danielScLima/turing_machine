@@ -1,12 +1,12 @@
-#ifndef PAIROFIDOFACCEPTANCESTATEANDSTRUCTURE_H
-#define PAIROFIDOFACCEPTANCESTATEANDSTRUCTURE_H
+#ifndef TUPLEOFIDOFACCEPTANCESTATEANDSTRUCTURE_H
+#define TUPLEOFIDOFACCEPTANCESTATEANDSTRUCTURE_H
 
 #include <vector>
 #include <Entry.h>
 
-struct PairOfIdOfAcceptanceStateAndStructure
+struct TupleOfIdOfAcceptanceStateAndStructure
 {
-    PairOfIdOfAcceptanceStateAndStructure
+    TupleOfIdOfAcceptanceStateAndStructure
     (
         int idOfAcceptanceState,
         std::vector<std::vector<std::vector<Entry>>> structure
@@ -20,4 +20,4 @@ struct PairOfIdOfAcceptanceStateAndStructure
     std::vector<std::vector<std::vector<Entry>>> structure;
 };
 
-#endif // PAIROFIDOFACCEPTANCESTATEANDSTRUCTURE_H
+#endif // TUPLEOFIDOFACCEPTANCESTATEANDSTRUCTURE_H

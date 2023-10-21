@@ -7,7 +7,7 @@
 using namespace std;
 
 #include <Entry.h>
-#include "pairofidofacceptancestateandstructure.h"
+#include "tupleofidofacceptancestateandstructure.h"
 
 
 class TuringachineSamples
@@ -15,7 +15,7 @@ class TuringachineSamples
 public:
     TuringachineSamples();
 
-    static PairOfIdOfAcceptanceStateAndStructure get_structure_of_debug_sample();
+    static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_debug_sample();
 };
 
 #endif // TURINGACHINESAMPLES_H

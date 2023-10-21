@@ -19,6 +19,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     Entry.h \
-    pairofidofacceptancestateandstructure.h \
+    tupleofidofacceptancestateandstructure.h \
     turingachinesamples.h \
     turingmachine.h

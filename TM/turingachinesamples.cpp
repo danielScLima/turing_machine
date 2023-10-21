@@ -1,12 +1,12 @@
 #include "turingachinesamples.h"
-#include <pairofidofacceptancestateandstructure.h>
+#include <tupleofidofacceptancestateandstructure.h>
 
 TuringachineSamples::TuringachineSamples()
 {
 
 }
 
-PairOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_debug_sample()
+TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_debug_sample()
 {
     std::vector<std::vector<std::vector<Entry>>> st = {
         //vetor partindo 0
@@ -31,5 +31,5 @@ PairOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_debu
         }
     };
 
-    return PairOfIdOfAcceptanceStateAndStructure(1, st);
+    return TupleOfIdOfAcceptanceStateAndStructure(1, st);
 }
