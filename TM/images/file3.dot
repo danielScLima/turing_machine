@@ -1,12 +1,26 @@
 digraph G {
+	subgraph cluster_0 {
+		node [shape=plaintext];
+
+struct1 [label=<<TABLE>
+<TR>
+<TD><FONT>&lt;</FONT></TD>
+<TD BGCOLOR="gray"><FONT>X</FONT></TD>
+<TD><FONT>b</FONT></TD>
+<TD><FONT>&gt;</FONT></TD>
+</TR>
+</TABLE>>];
+label = "Word";
+color=red;
+}
 	subgraph cluster_1 {
 		node [style=filled];
-		label = "Turing Machine: Question1"
+		label = "Turing Machine: After to read X"
 		color=blue;
 
 		q0;
 		q1;
-		q2;
+		q2 [color="lightblue"];
 		q3;
 		q4;
 		q5 [shape="doublecircle"];

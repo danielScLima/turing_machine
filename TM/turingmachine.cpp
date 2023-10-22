@@ -183,7 +183,7 @@ std::string TuringMachine::produce_content_of_draw()
     std::string content = "digraph G {\n";
     content += "\tsubgraph cluster_1 {\n";
     content += "\t\tnode [style=filled];\n";
-    content += "\t\tlabel = \"Turing Machine\"\n"
+    content += "\t\tlabel = \"Turing Machine: "+this->nameOfTuringMachine+"\"\n"
         "\t\tcolor=blue;\n"
         "\n";
 
@@ -210,7 +210,7 @@ std::string TuringMachine::produce_content_of_draw()
                 auto entry = transitions[entryindex];
 
                 std::string tmp = std::string(1, entry.symbol_on_ribbon)+
-                        "->"+std::string(1, entry.symbol_to_write)+
+                        " -> "+std::string(1, entry.symbol_to_write)+
                         ","+std::string(1, entry.movement);
                 if (entryindex == 0)
                     s = tmp;
@@ -234,6 +234,16 @@ std::string TuringMachine::produce_content_of_draw()
     return content;
 }
 
+std::string TuringMachine::getCharTransformedAsString(char c)
+{
+    if (c == '<')
+        return std::string("&lt;");
+    else if (c == '>')
+        return std::string("&gt;");
+    else
+        return std::string(1, c);
+}
+
 std::string TuringMachine::produce_content_of_draw_considering_input
 (
     const string &message,
@@ -253,9 +263,15 @@ std::string TuringMachine::produce_content_of_draw_considering_input
     for(int index = 0; index < this->input.size();++index)
     {
         if (index == previous_input_symbol_index)
-            content += "<TD BGCOLOR=\"gray\"><FONT>"+std::string(1, this->input[index])+"</FONT></TD>\n";
+        {
+            //content += "<TD BGCOLOR=\"gray\"><FONT>"+std::string(1, this->input[index])+"</FONT></TD>\n";
+            content += "<TD BGCOLOR=\"gray\"><FONT>"+getCharTransformedAsString(this->input[index])+"</FONT></TD>\n";
+        }
         else
-            content += "<TD><FONT>"+std::string(1, this->input[index])+"</FONT></TD>\n";
+        {
+            //content += "<TD><FONT>"+std::string(1, this->input[index])+"</FONT></TD>\n";
+            content += "<TD><FONT>"+getCharTransformedAsString(this->input[index])+"</FONT></TD>\n";
+        }
     }
 
     content += "</TR>\n";
@@ -304,7 +320,7 @@ std::string TuringMachine::produce_content_of_draw_considering_input
                 auto entry = transitions[entryindex];
 
                 std::string tmp = std::string(1, entry.symbol_on_ribbon)+
-                        "->"+std::string(1, entry.symbol_to_write)+
+                        " -> "+std::string(1, entry.symbol_to_write)+
                         ","+std::string(1, entry.movement);
                 if (entryindex == 0)
                     s = tmp;

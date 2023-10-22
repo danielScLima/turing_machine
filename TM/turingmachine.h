@@ -40,6 +40,8 @@ public:
 
     void is_this_input_string_in_the_language_with_message(const std::string &input, bool make_draw=false);
 
+    std::string getCharTransformedAsString(char c);
+
     std::string produce_content_of_draw();
 
     //write_acceptance_status: 0=não desenhar 1=aceito 2=não aceita
