@@ -190,9 +190,9 @@ std::string TuringMachine::produce_content_of_draw()
     for (int index = 0; index < this->structure.size(); ++index)
     {
         if (index == this->id_of_acceptance_state)
-            content += "\t\t"+std::to_string(index)+" [shape=\"doublecircle\"];\n";
+            content += "\t\tq"+std::to_string(index)+" [shape=\"doublecircle\"];\n";
         else
-            content += "\t\t"+std::to_string(index)+";\n";
+            content += "\t\tq"+std::to_string(index)+";\n";
     }
 
     for (int index = 0; index < this->structure.size(); ++index)
@@ -219,13 +219,13 @@ std::string TuringMachine::produce_content_of_draw()
 
             }
 
-            content += "\t\t"+std::to_string(index)+"->"+std::to_string(index2)+
+            content += "\t\tq"+std::to_string(index)+"->q"+std::to_string(index2)+
                     "[label=\""+s+"\"];\n";
         }
     }
 
     content += "x [color=white, label=\"\"];";
-    content += "\t\tx->"+std::to_string(this->start_state);
+    content += "\t\tx->q"+std::to_string(this->start_state);
 
     content += "\t}\n"
         "\n"
@@ -276,16 +276,16 @@ std::string TuringMachine::produce_content_of_draw_considering_input
         if (index == this->current_state)
         {
             if (index == this->id_of_acceptance_state)
-                content += "\t\t"+std::to_string(index)+" [shape=\"doublecircle\",color=\"lightblue\"];\n";
+                content += "\t\tq"+std::to_string(index)+" [shape=\"doublecircle\",color=\"lightblue\"];\n";
             else
-                content += "\t\t"+std::to_string(index)+" [color=\"lightblue\"];\n";
+                content += "\t\tq"+std::to_string(index)+" [color=\"lightblue\"];\n";
         }
         else
         {
             if (index == this->id_of_acceptance_state)
-                content += "\t\t"+std::to_string(index)+" [shape=\"doublecircle\"];\n";
+                content += "\t\tq"+std::to_string(index)+" [shape=\"doublecircle\"];\n";
             else
-                content += "\t\t"+std::to_string(index)+";\n";
+                content += "\t\tq"+std::to_string(index)+";\n";
         }
     }
 
@@ -313,13 +313,13 @@ std::string TuringMachine::produce_content_of_draw_considering_input
 
             }
 
-            content += "\t\t"+std::to_string(index)+"->"+std::to_string(index2)+
+            content += "\t\tq"+std::to_string(index)+"->q"+std::to_string(index2)+
                     "[label=\""+s+"\"];\n";
         }
     }
 
     content += "x [color=white, label=\"\"];";
-    content += "\t\tx->"+std::to_string(this->start_state);
+    content += "\t\tx->q"+std::to_string(this->start_state);
 
     content += "\t}\n"
         "\n";

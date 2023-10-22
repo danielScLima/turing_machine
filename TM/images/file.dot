@@ -4,14 +4,14 @@ digraph G {
 		label = "Turing Machine"
 		color=blue;
 
-		0;
-		1 [shape="doublecircle"];
-		2;
-		0->0[label="a->a,R"];
-		0->1[label="b->b,R"];
-		0->2[label="c->c,R"];
-		1->1[label="b->b,R"];
-		2->1[label="b->b,R"];
-x [color=white, label=""];		x->0	}
+		q0;
+		q1 [shape="doublecircle"];
+		q2;
+		q0->q0[label="a->a,R"];
+		q0->q1[label="b->b,R"];
+		q0->q2[label="c->c,R"];
+		q1->q1[label="b->b,R"];
+		q2->q1[label="b->b,R"];
+x [color=white, label=""];		x->q0	}
 
 }
