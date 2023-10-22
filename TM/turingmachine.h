@@ -12,6 +12,7 @@ class TuringMachine
 {
 private:
     std::vector<std::vector<std::vector<Entry>>> structure;
+    int start_state;
     int current_state;
     std::string input;
     int current_index_of_input;

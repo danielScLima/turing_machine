@@ -5,13 +5,13 @@ digraph G {
 		color=blue;
 
 		0;
-		1;
+		1 [shape="doublecircle"];
 		2;
 		0->0[label="a->a,R"];
 		0->1[label="b->b,R"];
 		0->2[label="c->c,R"];
 		1->1[label="b->b,R"];
 		2->1[label="b->b,R"];
-	}
+x [color=white, label=""];		x->0	}
 
 }

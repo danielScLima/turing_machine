@@ -35,6 +35,7 @@ void TuringMachine::configure_sample
     this->id_of_acceptance_state = p.idOfAcceptanceState;
     this->structure = p.structure;
     this->nameOfTuringMachine = p.nameOfTuringMachine;
+    this->start_state = p.start_state;
     reset();
 }
 
@@ -140,7 +141,10 @@ std::string TuringMachine::produce_content_of_draw()
 
     for (int index = 0; index < this->structure.size(); ++index)
     {
-        content += "\t\t"+std::to_string(index)+";\n";
+        if (index == this->id_of_acceptance_state)
+            content += "\t\t"+std::to_string(index)+" [shape=\"doublecircle\"];\n";
+        else
+            content += "\t\t"+std::to_string(index)+";\n";
     }
 
     for (int index = 0; index < this->structure.size(); ++index)
@@ -171,6 +175,9 @@ std::string TuringMachine::produce_content_of_draw()
                     "[label=\""+s+"\"];\n";
         }
     }
+
+    content += "x [color=white, label=\"\"];";
+    content += "\t\tx->"+std::to_string(this->start_state);
 
     content += "\t}\n"
         "\n"

@@ -11,17 +11,20 @@ struct TupleOfIdOfAcceptanceStateAndStructure
     (
         int idOfAcceptanceState,
         std::vector<std::vector<std::vector<Entry>>> structure,
-        std::string nameOfTuringMachine
+        std::string nameOfTuringMachine,
+        int start_state
     )
     {
         this->idOfAcceptanceState = idOfAcceptanceState;
         this->structure = structure;
         this->nameOfTuringMachine = nameOfTuringMachine;
+        this->start_state = start_state;
     }
 
     int idOfAcceptanceState;
     std::vector<std::vector<std::vector<Entry>>> structure;
     std::string nameOfTuringMachine;
+    int start_state;
 };
 
 #endif // TUPLEOFIDOFACCEPTANCESTATEANDSTRUCTURE_H
