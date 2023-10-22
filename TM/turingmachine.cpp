@@ -147,12 +147,28 @@ std::string TuringMachine::produce_content_of_draw()
     {
         for (int index2 = 0; index2 < this->structure.size(); ++index2)
         {
+            std::string s;
             std::vector<Entry> transitions = getTransitionsOfXStateToYState(index, index2);
-            for (auto entry: transitions)
+
+            if (transitions.size() == 0)
+                continue;
+
+            for (int entryindex = 0;entryindex<transitions.size();entryindex++)
             {
-                content += "\t\t"+std::to_string(index)+"->"+std::to_string(index2)+
-                        "[label=\""+entry.symbol_on_ribbon+"->"+entry.symbol_to_write+","+entry.movement+"\"];\n";
+                auto entry = transitions[entryindex];
+
+                std::string tmp = std::string(1, entry.symbol_on_ribbon)+
+                        "->"+std::string(1, entry.symbol_to_write)+
+                        ","+std::string(1, entry.movement);
+                if (entryindex == 0)
+                    s = tmp;
+                else
+                    s = s + "\n" + tmp;
+
             }
+
+            content += "\t\t"+std::to_string(index)+"->"+std::to_string(index2)+
+                    "[label=\""+s+"\"];\n";
         }
     }
 
