@@ -31,10 +31,13 @@ int main(int argc, char *argv[])
     tm.configure_sample(TuringachineSamples::get_structure_of_q1());
     tm.draw_machine(local_url, tm.getNameOfTuringMachine()+".png");
 
-    //tm.is_this_input_string_in_the_language_with_message("<ab>", true); //Ex1: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<ab>", true);   //Ex1: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("<aabb>", true); //Ex2: This must be accepted
-    //tm.is_this_input_string_in_the_language_with_message("<>", true); //Ex3: This must be accepted
-    tm.is_this_input_string_in_the_language_with_message("<aab>", true); //Ex4: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<>", true);     //Ex3: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<aab>", true);  //Ex4: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<abb>", true);  //Ex5: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<a>", true);    //Ex6: This must be accepted
+    tm.is_this_input_string_in_the_language_with_message("<b>", true);      //Ex7: This must be accepted
 
     //return a.exec();
     return 0;
