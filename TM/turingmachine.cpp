@@ -107,7 +107,7 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
 
         draw_machine_considering_input(
             local_url,
-            getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
+            getNameOfTuringMachine()+"_"+std::to_string(index_to_image++)+".png",
             index_to_image,
             "Before to read any input",
             -1,
@@ -130,7 +130,7 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
 
             draw_machine_considering_input(
                 local_url,
-                getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
+                getNameOfTuringMachine()+"_"+std::to_string(index_to_image++)+".png",
                 index_to_image,
                 "After to read "+std::string(1, this->input[previous_input_symbol_index]),
                 previous_input_symbol_index
@@ -140,7 +140,7 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
             {
                 draw_machine_considering_input(
                     local_url,
-                    getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
+                    getNameOfTuringMachine()+"_"+std::to_string(index_to_image++)+".png",
                     index_to_image,
                     "After to read "+std::string(1, this->input[previous_input_symbol_index]),
                     -1, //previous_input_symbol_index,
@@ -154,7 +154,7 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
     {
         draw_machine_considering_input(
             local_url,
-            getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
+            getNameOfTuringMachine()+"_"+std::to_string(index_to_image++)+".png",
             index_to_image,
             "",
             -1,
@@ -259,17 +259,14 @@ std::string TuringMachine::produce_content_of_draw_considering_input
     content += "struct1 [label=<<TABLE>\n";
     content += "<TR>\n";
 
-    //content += "<TD><FONT>a</FONT></TD>\n";
     for(int index = 0; index < this->input.size();++index)
     {
         if (index == previous_input_symbol_index)
         {
-            //content += "<TD BGCOLOR=\"gray\"><FONT>"+std::string(1, this->input[index])+"</FONT></TD>\n";
             content += "<TD BGCOLOR=\"gray\"><FONT>"+getCharTransformedAsString(this->input[index])+"</FONT></TD>\n";
         }
         else
         {
-            //content += "<TD><FONT>"+std::string(1, this->input[index])+"</FONT></TD>\n";
             content += "<TD><FONT>"+getCharTransformedAsString(this->input[index])+"</FONT></TD>\n";
         }
     }
