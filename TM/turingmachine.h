@@ -42,11 +42,17 @@ public:
 
     std::string produce_content_of_draw();
 
-    std::string produce_content_of_draw_considering_input();
+    std::string produce_content_of_draw_considering_input(const string &message);
 
     void draw_machine(const std::string& local_url, const std::string& url);
 
-    void draw_machine_considering_input(const std::string& local_url, const string &url, int index);
+    void draw_machine_considering_input
+    (
+        const std::string& local_url,
+        const string &url,
+        int index,
+        const string &message
+    );
 
     std::string getNameOfTuringMachine();
 };

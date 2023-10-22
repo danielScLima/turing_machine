@@ -1,7 +1,7 @@
 digraph G {
 	subgraph cluster_1 {
 		node [style=filled];
-		label = "Turing Machine"
+		label = "Turing Machine: After to read b"
 		color=blue;
 
 		0;
