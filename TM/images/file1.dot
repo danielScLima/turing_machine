@@ -4,7 +4,8 @@ digraph G {
 
 struct1 [label=<<TABLE>
 <TR>
-<TD><FONT>c</FONT></TD>
+<TD><FONT>a</FONT></TD>
+<TD><FONT>a</FONT></TD>
 <TD><FONT>b</FONT></TD>
 </TR>
 </TABLE>>];
