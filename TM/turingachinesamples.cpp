@@ -370,6 +370,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {}, //vetor chegando no 8
             {}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {}, //vetor chegando no 11
         },
 
         //vetor partindo do 1
@@ -385,6 +386,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {}, //vetor chegando no 8
             {}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {}, //vetor chegando no 11
         },
 
         //vetor partindo do 2
@@ -400,6 +402,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {}, //vetor chegando no 8
             {Entry('#','#','R')}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {Entry('<','<','R')}, //vetor chegando no 11
         },
 
         //vetor partindo do 3
@@ -415,6 +418,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {}, //vetor chegando no 8
             {}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {}, //vetor chegando no 11
         },
 
         //vetor partindo do 4
@@ -430,6 +434,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {}, //vetor chegando no 8
             {}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {}, //vetor chegando no 11
         },
 
         //vetor partindo do 5
@@ -445,6 +450,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {}, //vetor chegando no 8
             {}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {}, //vetor chegando no 11
         },
 
         //vetor partindo do 6
@@ -460,6 +466,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {}, //vetor chegando no 8
             {}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {}, //vetor chegando no 11
         },
 
         //vetor partindo do 7
@@ -475,6 +482,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {Entry('1','Y','L')}, //vetor chegando no 8
             {}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {}, //vetor chegando no 11
         },
 
         //vetor partindo do 8
@@ -490,6 +498,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {Entry('X','X','L'), Entry('Y','Y','L')}, //vetor chegando no 8
             {}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {}, //vetor chegando no 11
         },
 
         //vetor partindo do 9
@@ -505,6 +514,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {}, //vetor chegando no 8
             {Entry('X','X','R'), Entry('Y','Y','R')}, //vetor chegando no 9
             {Entry('>','>','R')}, //vetor chegando no 10
+            {}, //vetor chegando no 11
         },
 
         //vetor partindo do 10
@@ -521,6 +531,23 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
             {}, //vetor chegando no 8
             {}, //vetor chegando no 9
             {}, //vetor chegando no 10
+            {}, //vetor chegando no 11
+        },
+
+        //vetor partindo do 11
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {Entry('#','#','R')}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+            {Entry('X','X','R'), Entry('Y','Y','R')}, //vetor chegando no 11
         }
     };
 
