@@ -18,6 +18,8 @@ public:
     static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_debug_sample();
 
     static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_q1();
+
+    static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_q2();
 };
 
 #endif // TURINGACHINESAMPLES_H

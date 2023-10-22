@@ -28,16 +28,33 @@ int main(int argc, char *argv[])
     //tm.is_this_input_string_in_the_language_with_message("ccccca", true); //This must NOT be accepted
 
     //Questão 1
-    tm.configure_sample(TuringachineSamples::get_structure_of_q1());
-    tm.draw_machine(local_url, tm.getNameOfTuringMachine()+".png");
+    //tm.configure_sample(TuringachineSamples::get_structure_of_q1());
+    //tm.draw_machine(local_url, tm.getNameOfTuringMachine()+".png");
 
     //tm.is_this_input_string_in_the_language_with_message("<ab>", true);   //Ex1: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("<aabb>", true); //Ex2: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("<>", true);     //Ex3: This must be accepted
-    //tm.is_this_input_string_in_the_language_with_message("<aab>", true);  //Ex4: This must be accepted
-    //tm.is_this_input_string_in_the_language_with_message("<abb>", true);  //Ex5: This must be accepted
-    //tm.is_this_input_string_in_the_language_with_message("<a>", true);    //Ex6: This must be accepted
-    tm.is_this_input_string_in_the_language_with_message("<b>", true);      //Ex7: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<aab>", true);  //Ex4: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<abb>", true);  //Ex5: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<a>", true);    //Ex6: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<b>", true);      //Ex7: This must NOT be accepted
+
+    //Questão 2
+    tm.configure_sample(TuringachineSamples::get_structure_of_q2());
+    tm.draw_machine(local_url, tm.getNameOfTuringMachine()+".png");
+
+    //tm.is_this_input_string_in_the_language_with_message("<abc>", true);   //Ex1: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<aabbcc>", true);   //Ex2: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<>", true);   //Ex3: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<a>", true);   //Ex4: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<b>", true);   //Ex5: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<c>", true);   //Ex6: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<ab>", true);   //Ex7: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<bc>", true);   //Ex8: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<aabc>", true);   //Ex9: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<abbc>", true);   //Ex10: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<abcc>", true);   //Ex11: This must NOT be accepted
+    tm.is_this_input_string_in_the_language_with_message("<ac>", true);   //Ex11: This must NOT be accepted
 
     //return a.exec();
     return 0;
