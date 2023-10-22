@@ -33,7 +33,8 @@ int main(int argc, char *argv[])
 
     //tm.is_this_input_string_in_the_language_with_message("<ab>", true); //Ex1: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("<aabb>", true); //Ex2: This must be accepted
-    tm.is_this_input_string_in_the_language_with_message("<>", true); //Ex3: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<>", true); //Ex3: This must be accepted
+    tm.is_this_input_string_in_the_language_with_message("<aab>", true); //Ex4: This must be accepted
 
     //return a.exec();
     return 0;

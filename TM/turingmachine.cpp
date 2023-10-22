@@ -123,6 +123,7 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
                 std::cout << "Processando index " << std::to_string(this->current_index_of_input) << std::endl;
 
             previous_input_symbol_index = this->current_index_of_input;
+            char backup_current_char_input = this->input[this->current_index_of_input];
 
             consume_current_symbol();
 
@@ -132,7 +133,8 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
                 local_url,
                 getNameOfTuringMachine()+"_"+std::to_string(index_to_image++)+".png",
                 index_to_image,
-                "After to read "+std::string(1, this->input[previous_input_symbol_index]),
+                //"After to read "+std::string(1, this->input[previous_input_symbol_index]),
+                "After to read "+std::string(1, backup_current_char_input),
                 previous_input_symbol_index
             );
 
@@ -142,7 +144,8 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
                     local_url,
                     getNameOfTuringMachine()+"_"+std::to_string(index_to_image++)+".png",
                     index_to_image,
-                    "After to read "+std::string(1, this->input[previous_input_symbol_index]),
+                    //"After to read "+std::string(1, this->input[previous_input_symbol_index]),
+                    "After to read "+std::string(1, backup_current_char_input),
                     -1, //previous_input_symbol_index,
                     1   //acceptance status: aceita
                 );
@@ -261,7 +264,8 @@ std::string TuringMachine::produce_content_of_draw_considering_input
 
     for(int index = 0; index < this->input.size();++index)
     {
-        if (index == previous_input_symbol_index)
+        //if (index == previous_input_symbol_index)
+        if (index == current_index_of_input)
         {
             content += "<TD BGCOLOR=\"gray\"><FONT>"+getCharTransformedAsString(this->input[index])+"</FONT></TD>\n";
         }

@@ -5,8 +5,8 @@ digraph G {
 struct1 [label=<<TABLE>
 <TR>
 <TD><FONT>&lt;</FONT></TD>
-<TD><FONT>X</FONT></TD>
-<TD BGCOLOR="gray"><FONT>Y</FONT></TD>
+<TD BGCOLOR="gray"><FONT>X</FONT></TD>
+<TD><FONT>Y</FONT></TD>
 <TD><FONT>&gt;</FONT></TD>
 </TR>
 </TABLE>>];
@@ -15,7 +15,7 @@ color=red;
 }
 	subgraph cluster_1 {
 		node [style=filled];
-		label = "Turing Machine: After to read Y"
+		label = "Turing Machine: After to read b"
 		color=blue;
 
 		q0;

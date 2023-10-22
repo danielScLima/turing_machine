@@ -6,8 +6,8 @@ struct1 [label=<<TABLE>
 <TR>
 <TD><FONT>&lt;</FONT></TD>
 <TD><FONT>X</FONT></TD>
-<TD BGCOLOR="gray"><FONT>X</FONT></TD>
-<TD><FONT>Y</FONT></TD>
+<TD><FONT>X</FONT></TD>
+<TD BGCOLOR="gray"><FONT>Y</FONT></TD>
 <TD><FONT>Y</FONT></TD>
 <TD><FONT>&gt;</FONT></TD>
 </TR>

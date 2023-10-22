@@ -9,7 +9,7 @@ struct1 [label=<<TABLE>
 <TD><FONT>X</FONT></TD>
 <TD><FONT>Y</FONT></TD>
 <TD><FONT>Y</FONT></TD>
-<TD><FONT>&gt;</FONT></TD>
+<TD BGCOLOR="gray"><FONT>&gt;</FONT></TD>
 </TR>
 </TABLE>>];
 label = "Word";
