@@ -24,6 +24,8 @@ public:
     static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_q3();
 
     static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_q4();
+
+    static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_q5();
 };
 
 #endif // TURINGACHINESAMPLES_H
