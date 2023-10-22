@@ -15,7 +15,7 @@ private:
     int start_state;
     int current_state;
     std::string input;
-    int current_index_of_input;
+    int current_index_of_input = -1;
     bool show_debug_messages;
     int id_of_acceptance_state;
     std::string nameOfTuringMachine;
@@ -36,13 +36,17 @@ public:
 
     void consume_current_symbol();
 
-    bool is_this_input_string_in_the_language(const std::string& input);
+    bool is_this_input_string_in_the_language(const std::string& input, bool make_draw);
 
-    void is_this_input_string_in_the_language_with_message(const std::string &input);
+    void is_this_input_string_in_the_language_with_message(const std::string &input, bool make_draw=false);
 
     std::string produce_content_of_draw();
 
+    std::string produce_content_of_draw_considering_input();
+
     void draw_machine(const std::string& local_url, const std::string& url);
+
+    void draw_machine_considering_input(const std::string& local_url, const string &url, int index);
 
     std::string getNameOfTuringMachine();
 };

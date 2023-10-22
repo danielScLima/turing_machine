@@ -96,11 +96,20 @@ void TuringMachine::consume_current_symbol()
     throw std::exception();
 }
 
-bool TuringMachine::is_this_input_string_in_the_language(const std::string& input)
+bool TuringMachine::is_this_input_string_in_the_language(const std::string& input, bool make_draw)
 {
+    int index_to_image = 0;
+    std::string local_url = "C:/Users/Daniel/Documents/GitHub/turing_machine/TM/images";
+
     try
     {
         configure_input_string(input);
+
+        draw_machine_considering_input(
+            local_url,
+            getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
+            index_to_image
+        );
 
         this->current_index_of_input = 0;
 
@@ -109,6 +118,12 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
             if (this->show_debug_messages)
                 std::cout << "Processando index " << std::to_string(this->current_index_of_input) << std::endl;
             consume_current_symbol();
+
+            draw_machine_considering_input(
+                local_url,
+                getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
+                index_to_image
+            );
 
             if (this->current_state == this->id_of_acceptance_state)
                 return true;
@@ -120,9 +135,13 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
     }
 }
 
-void TuringMachine::is_this_input_string_in_the_language_with_message(const std::string &input)
+void TuringMachine::is_this_input_string_in_the_language_with_message
+(
+    const std::string &input,
+    bool make_draw
+)
 {
-    bool ret = is_this_input_string_in_the_language(input);
+    bool ret = is_this_input_string_in_the_language(input, make_draw);
 
     if (ret)
         std::cout << "The word " << input << " was accepted!!" << std::endl;
@@ -186,6 +205,73 @@ std::string TuringMachine::produce_content_of_draw()
     return content;
 }
 
+std::string TuringMachine::produce_content_of_draw_considering_input()
+{
+    std::string content = "digraph G {\n";
+    content += "\tsubgraph cluster_1 {\n";
+    content += "\t\tnode [style=filled];\n";
+    content += "\t\tlabel = \"Turing Machine\"\n"
+        "\t\tcolor=blue;\n"
+        "\n";
+
+    for (int index = 0; index < this->structure.size(); ++index)
+    {
+        if (index == this->current_state)
+        {
+            if (index == this->id_of_acceptance_state)
+                content += "\t\t"+std::to_string(index)+" [shape=\"doublecircle\",color=\"lightblue\"];\n";
+            else
+                content += "\t\t"+std::to_string(index)+" [color=\"lightblue\"];\n";
+        }
+        else
+        {
+            if (index == this->id_of_acceptance_state)
+                content += "\t\t"+std::to_string(index)+" [shape=\"doublecircle\"];\n";
+            else
+                content += "\t\t"+std::to_string(index)+";\n";
+        }
+    }
+
+    for (int index = 0; index < this->structure.size(); ++index)
+    {
+        for (int index2 = 0; index2 < this->structure.size(); ++index2)
+        {
+            std::string s;
+            std::vector<Entry> transitions = getTransitionsOfXStateToYState(index, index2);
+
+            if (transitions.size() == 0)
+                continue;
+
+            for (int entryindex = 0;entryindex<transitions.size();entryindex++)
+            {
+                auto entry = transitions[entryindex];
+
+                std::string tmp = std::string(1, entry.symbol_on_ribbon)+
+                        "->"+std::string(1, entry.symbol_to_write)+
+                        ","+std::string(1, entry.movement);
+                if (entryindex == 0)
+                    s = tmp;
+                else
+                    s = s + "\n" + tmp;
+
+            }
+
+            content += "\t\t"+std::to_string(index)+"->"+std::to_string(index2)+
+                    "[label=\""+s+"\"];\n";
+        }
+    }
+
+    content += "x [color=white, label=\"\"];";
+    content += "\t\tx->"+std::to_string(this->start_state);
+
+    content += "\t}\n"
+        "\n"
+        "}";
+
+    return content;
+}
+
+
 void TuringMachine::write_to_file(const string &url, const string &content)
 {
     ofstream myfile;
@@ -198,7 +284,15 @@ void TuringMachine::draw_machine(const std::string& local_url, const string &url
 {
     std::string content = produce_content_of_draw();
     write_to_file(local_url+"/file.dot", content);
-    std::string command = "dot file.dot -Tpng > "+local_url+"/"+url;
+    std::string command = "dot "+local_url+"/file.dot -Tpng > "+local_url+"/"+url;
+    system(command.c_str());
+}
+
+void TuringMachine::draw_machine_considering_input(const std::string& local_url, const string &url, int index)
+{
+    std::string content = produce_content_of_draw_considering_input();
+    write_to_file(local_url+"/file"+std::to_string(index)+".dot", content);
+    std::string command = "dot "+local_url+"/file"+std::to_string(index)+".dot -Tpng > "+local_url+"/"+url;
     system(command.c_str());
 }
 
