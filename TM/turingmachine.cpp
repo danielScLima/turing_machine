@@ -109,27 +109,30 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
             local_url,
             getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
             index_to_image,
-            "Before to read any input"
+            "Before to read any input",
+            -1
         );
 
         this->current_index_of_input = 0;
+        int previous_input_symbol_index = this->current_index_of_input;
 
         while(true)
         {
             if (this->show_debug_messages)
                 std::cout << "Processando index " << std::to_string(this->current_index_of_input) << std::endl;
 
-            int previous_symbol_index = this->current_index_of_input;
+            previous_input_symbol_index = this->current_index_of_input;
 
             consume_current_symbol();
 
-            std::cout << "previous_index_of_input: " << std::to_string(previous_symbol_index) << std::endl;
+            std::cout << "previous_index_of_input: " << std::to_string(previous_input_symbol_index) << std::endl;
 
             draw_machine_considering_input(
                 local_url,
                 getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
                 index_to_image,
-                "After to read "+std::string(1, this->input[previous_symbol_index])
+                "After to read "+std::string(1, this->input[previous_input_symbol_index]),
+                previous_input_symbol_index
             );
 
             if (this->current_state == this->id_of_acceptance_state)
@@ -212,9 +215,32 @@ std::string TuringMachine::produce_content_of_draw()
     return content;
 }
 
-std::string TuringMachine::produce_content_of_draw_considering_input(const string &message)
+std::string TuringMachine::produce_content_of_draw_considering_input(const string &message, int previous_input_symbol_index)
 {
     std::string content = "digraph G {\n";
+
+    content += "\tsubgraph cluster_0 {\n";
+    content += "\t\tnode [shape=plaintext];\n";
+    content += "\n";
+    content += "struct1 [label=<<TABLE>\n";
+    content += "<TR>\n";
+
+    //content += "<TD><FONT>a</FONT></TD>\n";
+    for(int index = 0; index < this->input.size();++index)
+    {
+        if (index == previous_input_symbol_index)
+            content += "<TD BGCOLOR=\"gray\"><FONT>"+std::string(1, this->input[index])+"</FONT></TD>\n";
+        else
+            content += "<TD><FONT>"+std::string(1, this->input[index])+"</FONT></TD>\n";
+    }
+
+    content += "</TR>\n";
+    content += "</TABLE>>];\n";
+    content += "label = \"Word\";\n";
+    content += "color=red;\n";
+    content += "}\n";
+
+
     content += "\tsubgraph cluster_1 {\n";
     content += "\t\tnode [style=filled];\n";
     content += "\t\tlabel = \"Turing Machine: "+message+"\"\n"
@@ -300,10 +326,11 @@ void TuringMachine::draw_machine_considering_input
     const std::string& local_url,
     const string &url,
     int index,
-    const string &message
+    const string &message,
+    int previous_input_symbol_index
 )
 {
-    std::string content = produce_content_of_draw_considering_input(message);
+    std::string content = produce_content_of_draw_considering_input(message, previous_input_symbol_index);
     write_to_file(local_url+"/file"+std::to_string(index)+".dot", content);
     std::string command = "dot "+local_url+"/file"+std::to_string(index)+".dot -Tpng > "+local_url+"/"+url;
     system(command.c_str());
