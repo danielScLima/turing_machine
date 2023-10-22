@@ -110,7 +110,8 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
             getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
             index_to_image,
             "Before to read any input",
-            -1
+            -1,
+            0     //acceptance status
         );
 
         this->current_index_of_input = 0;
@@ -136,11 +137,29 @@ bool TuringMachine::is_this_input_string_in_the_language(const std::string& inpu
             );
 
             if (this->current_state == this->id_of_acceptance_state)
+            {
+                draw_machine_considering_input(
+                    local_url,
+                    getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
+                    index_to_image,
+                    "After to read "+std::string(1, this->input[previous_input_symbol_index]),
+                    -1, //previous_input_symbol_index,
+                    1   //acceptance status: aceita
+                );
                 return true;
+            }
         }
     }
     catch (std::exception ex)
     {
+        draw_machine_considering_input(
+            local_url,
+            getNameOfTuringMachine()+std::to_string(index_to_image++)+".png",
+            index_to_image,
+            "",
+            -1,
+            2   //acceptance status: rejected
+        );
         return false;
     }
 }
@@ -215,7 +234,12 @@ std::string TuringMachine::produce_content_of_draw()
     return content;
 }
 
-std::string TuringMachine::produce_content_of_draw_considering_input(const string &message, int previous_input_symbol_index)
+std::string TuringMachine::produce_content_of_draw_considering_input
+(
+    const string &message,
+    int previous_input_symbol_index,
+    int write_acceptance_status
+)
 {
     std::string content = "digraph G {\n";
 
@@ -298,8 +322,31 @@ std::string TuringMachine::produce_content_of_draw_considering_input(const strin
     content += "\t\tx->"+std::to_string(this->start_state);
 
     content += "\t}\n"
-        "\n"
-        "}";
+        "\n";
+
+    //inserir aceito ou rejeitado
+    if (write_acceptance_status == 1)
+    {
+        content += "subgraph cluster_1s {\n"
+                   "node [style=filled, shape=rect];\n"
+                "cluster_1_n [label=\"Accepted word\", color=\"green\"];\n"
+                "label = \"Status\";\n"
+                "color=green;\n"
+                "}\n"
+                ;
+    }
+    else if(write_acceptance_status == 2)
+    {
+        content += "subgraph cluster_0s {\n"
+                   "node [style=filled, shape=rect];\n"
+                "cluster_0_n [label=\"Rejected word\", color=\"red\"];\n"
+                "label = \"Status\";\n"
+                "color=red;\n"
+                "}\n"
+                ;
+    }
+
+    content += "}";
 
     return content;
 }
@@ -327,10 +374,15 @@ void TuringMachine::draw_machine_considering_input
     const string &url,
     int index,
     const string &message,
-    int previous_input_symbol_index
+    int previous_input_symbol_index,
+    int write_acceptance_status
 )
 {
-    std::string content = produce_content_of_draw_considering_input(message, previous_input_symbol_index);
+    std::string content = produce_content_of_draw_considering_input(
+        message,
+        previous_input_symbol_index,
+        write_acceptance_status
+    );
     write_to_file(local_url+"/file"+std::to_string(index)+".dot", content);
     std::string command = "dot "+local_url+"/file"+std::to_string(index)+".dot -Tpng > "+local_url+"/"+url;
     system(command.c_str());

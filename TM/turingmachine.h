@@ -42,17 +42,25 @@ public:
 
     std::string produce_content_of_draw();
 
-    std::string produce_content_of_draw_considering_input(const string &message, int previous_input_symbol_index);
+    //write_acceptance_status: 0=não desenhar 1=aceito 2=não aceita
+    std::string produce_content_of_draw_considering_input
+    (
+        const string &message,
+        int previous_input_symbol_index,
+        int write_acceptance_status = 0
+    );
 
     void draw_machine(const std::string& local_url, const std::string& url);
 
+    //write_acceptance_status: 0=não desenhar 1=aceito 2=não aceita
     void draw_machine_considering_input
     (
         const std::string& local_url,
         const string &url,
         int index,
         const string &message,
-        int previous_input_symbol_index
+        int previous_input_symbol_index,
+        int write_acceptance_status = 0
     );
 
     std::string getNameOfTuringMachine();

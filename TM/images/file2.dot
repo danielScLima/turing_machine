@@ -4,9 +4,12 @@ digraph G {
 
 struct1 [label=<<TABLE>
 <TR>
-<TD BGCOLOR="gray"><FONT>a</FONT></TD>
+<TD BGCOLOR="gray"><FONT>c</FONT></TD>
+<TD><FONT>c</FONT></TD>
+<TD><FONT>c</FONT></TD>
+<TD><FONT>c</FONT></TD>
+<TD><FONT>c</FONT></TD>
 <TD><FONT>a</FONT></TD>
-<TD><FONT>b</FONT></TD>
 </TR>
 </TABLE>>];
 label = "Word";
@@ -14,12 +17,12 @@ color=red;
 }
 	subgraph cluster_1 {
 		node [style=filled];
-		label = "Turing Machine: After to read a"
+		label = "Turing Machine: After to read c"
 		color=blue;
 
-		0 [color="lightblue"];
+		0;
 		1 [shape="doublecircle"];
-		2;
+		2 [color="lightblue"];
 		0->0[label="a->a,R"];
 		0->1[label="b->b,R"];
 		0->2[label="c->c,R"];
