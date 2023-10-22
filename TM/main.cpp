@@ -105,7 +105,8 @@ int main(int argc, char *argv[])
     //tm.is_this_input_string_in_the_language_with_message("11BBB", true);   //Ex4: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("01BBB", true);   //Ex5: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("10BBB", true);   //Ex6: This must be accepted
-    tm.is_this_input_string_in_the_language_with_message("101BBB", true);   //Ex7: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("101BBB", true);   //Ex7: This must be accepted
+    tm.is_this_input_string_in_the_language_with_message("BBB", true);   //Ex8: This must be accepted
 
     //return a.exec();
     return 0;
