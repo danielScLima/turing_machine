@@ -62,8 +62,12 @@ int main(int argc, char *argv[])
 
     //tm.is_this_input_string_in_the_language_with_message("<0#0>", true);   //Ex1: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("<1#1>", true);   //Ex2: This must be accepted
-    tm.is_this_input_string_in_the_language_with_message("<#>", true);   //Ex3: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<#>", true);   //Ex3: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("<01#01>", true);   //Ex4: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<10#10>", true);   //Ex5: This must be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<0#1>", true);   //Ex6: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<1#0>", true);   //Ex7: This must NOT be accepted
+    tm.is_this_input_string_in_the_language_with_message("<01#10>", true);   //Ex8: This must NOT be accepted
 
     //return a.exec();
     return 0;

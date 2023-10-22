@@ -1,0 +1,62 @@
+digraph G {
+	subgraph cluster_0 {
+		node [shape=plaintext];
+
+struct1 [label=<<TABLE>
+<TR>
+<TD><FONT>&lt;</FONT></TD>
+<TD BGCOLOR="gray"><FONT>1</FONT></TD>
+<TD><FONT>#</FONT></TD>
+<TD><FONT>0</FONT></TD>
+<TD><FONT>&gt;</FONT></TD>
+</TR>
+</TABLE>>];
+label = "Word";
+color=red;
+}
+	subgraph cluster_1 {
+		node [style=filled];
+		label = "Turing Machine: After to read <"
+		color=blue;
+
+		q0;
+		q1 [color="lightblue"];
+		q2;
+		q3;
+		q4;
+		q5;
+		q6;
+		q7;
+		q8;
+		q9 [shape="doublecircle"];
+		q0->q1[label="< -> <,R"];
+		q1->q1[label="X -> X,R
+Y -> Y,R"];
+		q1->q2[label="0 -> X,R"];
+		q1->q6[label="1 -> Y,R"];
+		q1->q8[label="# -> #,R"];
+		q2->q2[label="1 -> 1,R
+0 -> 0,R"];
+		q2->q3[label="# -> #,R"];
+		q3->q3[label="X -> X,R
+Y -> Y,R"];
+		q3->q4[label="0 -> X,L"];
+		q4->q4[label="X -> X,L
+Y -> Y,L"];
+		q4->q5[label="# -> #,L"];
+		q5->q1[label="X -> X,R
+Y -> Y,R"];
+		q5->q5[label="0 -> 0,L
+1 -> 1,L"];
+		q6->q6[label="1 -> 1,R
+0 -> 0,R"];
+		q6->q7[label="# -> #,R"];
+		q7->q4[label="1 -> Y,L"];
+		q7->q7[label="X -> X,R
+Y -> Y,R"];
+		q8->q8[label="X -> X,R
+Y -> Y,R"];
+		q8->q9[label="> -> >,R"];
+x [color=white, label=""];		x->q0	}
+
+}
