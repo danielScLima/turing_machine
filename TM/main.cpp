@@ -57,8 +57,8 @@ int main(int argc, char *argv[])
     //tm.is_this_input_string_in_the_language_with_message("<ac>", true);   //Ex11: This must NOT be accepted
 
     //Questão 3
-    tm.configure_sample(TuringachineSamples::get_structure_of_q3());
-    tm.draw_machine(local_url, tm.getNameOfTuringMachine()+".png");
+    //tm.configure_sample(TuringachineSamples::get_structure_of_q3());
+    //tm.draw_machine(local_url, tm.getNameOfTuringMachine()+".png");
 
     //tm.is_this_input_string_in_the_language_with_message("<0#0>", true);   //Ex1: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("<1#1>", true);   //Ex2: This must be accepted
@@ -67,7 +67,11 @@ int main(int argc, char *argv[])
     //tm.is_this_input_string_in_the_language_with_message("<10#10>", true);   //Ex5: This must be accepted
     //tm.is_this_input_string_in_the_language_with_message("<0#1>", true);   //Ex6: This must NOT be accepted
     //tm.is_this_input_string_in_the_language_with_message("<1#0>", true);   //Ex7: This must NOT be accepted
-    tm.is_this_input_string_in_the_language_with_message("<01#10>", true);   //Ex8: This must NOT be accepted
+    //tm.is_this_input_string_in_the_language_with_message("<01#10>", true);   //Ex8: This must NOT be accepted
+
+    //Questão 4
+    tm.configure_sample(TuringachineSamples::get_structure_of_q4());
+    tm.draw_machine(local_url, tm.getNameOfTuringMachine()+".png");
 
     //return a.exec();
     return 0;

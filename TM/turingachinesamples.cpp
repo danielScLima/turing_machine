@@ -353,3 +353,176 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q3(
 
     return TupleOfIdOfAcceptanceStateAndStructure(9, st, "Question3", 0);
 }
+
+TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4()
+{
+    std::vector<std::vector<std::vector<Entry>>> st = {
+        //vetor partindo 0
+        {
+            {}, //vetor chegando no 0
+            {Entry('<','<','R')}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 1
+        {
+            {}, //vetor chegando no 0
+            {Entry('0','0','R'),Entry('1','1','R')}, //vetor chegando no 1
+            {Entry('#','#','L')}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 2
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {Entry('X','X','L'),Entry('Y','Y','L')}, //vetor chegando no 2
+            {Entry('0','X','R')}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {Entry('1','Y','R')}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {Entry('#','#','R')}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 3
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {Entry('X','X','R'),Entry('Y','Y','R')}, //vetor chegando no 3
+            {Entry('#','#','R')}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 4
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {Entry('X','X','R'), Entry('Y','Y','R')}, //vetor chegando no 4
+            {Entry('0','X','L')}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 5
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {Entry('#','#','L')}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {Entry('X','X','L'), Entry('Y','Y','L')}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 6
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {Entry('X','X','R'), Entry('Y','Y','R')}, //vetor chegando no 6
+            {Entry('#','#','R')}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 7
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {Entry('X','X','R'), Entry('Y','Y','R')}, //vetor chegando no 7
+            {Entry('1','Y','L')}, //vetor chegando no 8
+            {}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 8
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {Entry('#','#','L')}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {Entry('X','X','L'), Entry('Y','Y','L')}, //vetor chegando no 8
+            {}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 9
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {Entry('X','X','R'), Entry('Y','Y','R')}, //vetor chegando no 9
+            {Entry('>','>','R')}, //vetor chegando no 10
+        },
+
+        //vetor partindo do 10
+        //10 é o de aceitação
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+            {}, //vetor chegando no 6
+            {}, //vetor chegando no 7
+            {}, //vetor chegando no 8
+            {}, //vetor chegando no 9
+            {}, //vetor chegando no 10
+        }
+    };
+
+    return TupleOfIdOfAcceptanceStateAndStructure(10, st, "Question4", 0);
+}
