@@ -9,8 +9,8 @@ CONFIG -= app_bundle
 
 SOURCES += \
         main.cpp \
-        turingachinesamples.cpp \
-        turingmachine.cpp
+        turingmachine.cpp \
+        turingmachinesamples.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -20,5 +20,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     Entry.h \
     tupleofidofacceptancestateandstructure.h \
-    turingachinesamples.h \
-    turingmachine.h
+    turingmachine.h \
+    turingmachinesamples.h

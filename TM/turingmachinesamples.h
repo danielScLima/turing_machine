@@ -1,5 +1,5 @@
-#ifndef TURINGACHINESAMPLES_H
-#define TURINGACHINESAMPLES_H
+#ifndef TURINGMACHINESAMPLES_H
+#define TURINGMACHINESAMPLES_H
 
 #include <vector>
 #include <iostream>
@@ -10,10 +10,10 @@ using namespace std;
 #include "tupleofidofacceptancestateandstructure.h"
 
 
-class TuringachineSamples
+class TuringMachineSamples
 {
 public:
-    TuringachineSamples();
+    TuringMachineSamples();
 
     static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_debug_sample();
 
@@ -28,6 +28,8 @@ public:
     static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_q5();
 
     static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_q6_part1();
+
+    static TupleOfIdOfAcceptanceStateAndStructure get_structure_of_q6_part2();
 };
 
-#endif // TURINGACHINESAMPLES_H
+#endif // TURINGMACHINESAMPLES_H

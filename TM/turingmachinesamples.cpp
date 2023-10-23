@@ -1,12 +1,12 @@
-#include "turingachinesamples.h"
+#include "turingmachinesamples.h"
 #include <tupleofidofacceptancestateandstructure.h>
 
-TuringachineSamples::TuringachineSamples()
+TuringMachineSamples::TuringMachineSamples()
 {
 
 }
 
-TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_debug_sample()
+TupleOfIdOfAcceptanceStateAndStructure TuringMachineSamples::get_structure_of_debug_sample()
 {
     std::vector<std::vector<std::vector<Entry>>> st = {
         //vetor partindo 0
@@ -34,7 +34,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_deb
     return TupleOfIdOfAcceptanceStateAndStructure(1, st, "Demo", 0);
 }
 
-TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q1()
+TupleOfIdOfAcceptanceStateAndStructure TuringMachineSamples::get_structure_of_q1()
 {
     std::vector<std::vector<std::vector<Entry>>> st = {
         //vetor partindo 0
@@ -102,7 +102,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q1(
     return TupleOfIdOfAcceptanceStateAndStructure(5, st, "Question1", 0);
 }
 
-TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q2()
+TupleOfIdOfAcceptanceStateAndStructure TuringMachineSamples::get_structure_of_q2()
 {
     std::vector<std::vector<std::vector<Entry>>> st = {
         //vetor partindo 0
@@ -206,7 +206,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q2(
     return TupleOfIdOfAcceptanceStateAndStructure(7, st, "Question2", 0);
 }
 
-TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q3()
+TupleOfIdOfAcceptanceStateAndStructure TuringMachineSamples::get_structure_of_q3()
 {
     std::vector<std::vector<std::vector<Entry>>> st = {
         //vetor partindo 0
@@ -354,7 +354,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q3(
     return TupleOfIdOfAcceptanceStateAndStructure(9, st, "Question3", 0);
 }
 
-TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4()
+TupleOfIdOfAcceptanceStateAndStructure TuringMachineSamples::get_structure_of_q4()
 {
     std::vector<std::vector<std::vector<Entry>>> st = {
         //vetor partindo 0
@@ -554,7 +554,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q4(
     return TupleOfIdOfAcceptanceStateAndStructure(10, st, "Question4", 0);
 }
 
-TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q5()
+TupleOfIdOfAcceptanceStateAndStructure TuringMachineSamples::get_structure_of_q5()
 {
     std::vector<std::vector<std::vector<Entry>>> st = {
         //vetor partindo do 0
@@ -679,7 +679,7 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q5(
     return TupleOfIdOfAcceptanceStateAndStructure(8, st, "Question5", 0);
 }
 
-TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q6_part1()
+TupleOfIdOfAcceptanceStateAndStructure TuringMachineSamples::get_structure_of_q6_part1()
 {
     std::vector<std::vector<std::vector<Entry>>> st = {
         //vetor partindo 0
@@ -877,4 +877,72 @@ TupleOfIdOfAcceptanceStateAndStructure TuringachineSamples::get_structure_of_q6_
     };
 
     return TupleOfIdOfAcceptanceStateAndStructure(11, st, "Question6Part1", 0);
+}
+
+TupleOfIdOfAcceptanceStateAndStructure TuringMachineSamples::get_structure_of_q6_part2()
+{
+    std::vector<std::vector<std::vector<Entry>>> st = {
+        //vetor partindo 0
+        {
+            {}, //vetor chegando no 0
+            {Entry('0','W','R')}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+        },
+
+        //vetor partindo do 1
+        {
+            {}, //vetor chegando no 0
+            {Entry('0','0','R'), Entry('1','1','R')}, //vetor chegando no 1
+            {Entry('B','B','L')}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+        },
+
+        //vetor partindo do 2
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {Entry('0','1','L')}, //vetor chegando no 3
+            {Entry('1','0','L')}, //vetor chegando no 4
+            {Entry('W','1','L')}, //vetor chegando no 5
+        },
+
+        //vetor partindo do 3
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {Entry('0','0','L'),Entry('1','1','L')}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {Entry('W','0','L')}, //vetor chegando no 5
+        },
+
+        //vetor partindo do 4
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {Entry('0','1','L')}, //vetor chegando no 3
+            {Entry('1','0','L')}, //vetor chegando no 4
+            {Entry('W','1','L')}, //vetor chegando no 5
+        },
+
+        //vetor partindo do 5
+        //5 é o de aceitação
+        {
+            {}, //vetor chegando no 0
+            {}, //vetor chegando no 1
+            {}, //vetor chegando no 2
+            {}, //vetor chegando no 3
+            {}, //vetor chegando no 4
+            {}, //vetor chegando no 5
+        }
+    };
+
+    return TupleOfIdOfAcceptanceStateAndStructure(5, st, "Question6Part2", 0);
 }

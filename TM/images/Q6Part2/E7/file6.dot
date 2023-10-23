@@ -1,0 +1,45 @@
+digraph G {
+	subgraph cluster_0 {
+		node [shape=plaintext];
+
+struct1 [label=<<TABLE>
+<TR>
+<TD><FONT>W</FONT></TD>
+<TD><FONT>1</FONT></TD>
+<TD><FONT>0</FONT></TD>
+<TD BGCOLOR="gray"><FONT>1</FONT></TD>
+<TD><FONT>B</FONT></TD>
+<TD><FONT>B</FONT></TD>
+<TD><FONT>B</FONT></TD>
+</TR>
+</TABLE>>];
+label = "Word";
+color=red;
+}
+	subgraph cluster_1 {
+		node [style=filled];
+		label = "Turing Machine: After to read B"
+		color=blue;
+
+		q0;
+		q1;
+		q2 [color="lightblue"];
+		q3;
+		q4;
+		q5 [shape="doublecircle"];
+		q0->q1[label="0 -> W,R"];
+		q1->q1[label="0 -> 0,R
+1 -> 1,R"];
+		q1->q2[label="B -> B,L"];
+		q2->q3[label="0 -> 1,L"];
+		q2->q4[label="1 -> 0,L"];
+		q2->q5[label="W -> 1,L"];
+		q3->q3[label="0 -> 0,L
+1 -> 1,L"];
+		q3->q5[label="W -> 0,L"];
+		q4->q3[label="0 -> 1,L"];
+		q4->q4[label="1 -> 0,L"];
+		q4->q5[label="W -> 1,L"];
+x [color=white, label=""];		x->q0	}
+
+}
